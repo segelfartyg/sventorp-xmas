@@ -4,21 +4,23 @@ let secondDiceValue = 1
 let firstDiceImageSrc = document.getElementById("firstDice");
 let secondDiceImageSrc = document.getElementById("secondDice");
 
-
-
 function throwTwo(){
 
+    changeGIFs();
     var audio = new Audio('./sounds/diceroll.mp3');
     audio.play();
     scrambleDice();
-
+    firstDiceImageSrc.style.animation = "shakeDice 0.15s infinite";
+    
+    secondDiceImageSrc.style.animation = "shakeDice 0.15s infinite";
     let scrambleInterval = setInterval(() => {
+
             scrambleDice();
     }, 50);
 
     setTimeout(() => {
 
-        launchOrdinaryGrafitti()
+       
         let firstDiceValue = Math.floor(Math.random() * (6 - 1 + 1) + 1);
         firstDiceImageSrc.src = `./images/1dice${firstDiceValue}.png`
         
@@ -27,6 +29,10 @@ function throwTwo(){
         let secondDiceValue = Math.floor(Math.random() * (6 - 1 + 1) + 1);
         secondDiceImageSrc.src = `./images/1dice${secondDiceValue}.png`
 
+        
+    firstDiceImageSrc.style.animation = "none";
+    
+    secondDiceImageSrc.style.animation = "none";
         clearInterval(scrambleInterval);
     
         if(firstDiceValue == 6 || secondDiceValue == 6){
@@ -34,11 +40,14 @@ function throwTwo(){
             var audio = new Audio('./sounds/airhorn.mp3');
             audio.play();
             launchStarsGrafitti();
+            launchOrdinaryGrafitti()
             showMessage("Ta ett paketjävel!!!!! SNURRA HÖGER");
         }
 
         if(firstDiceValue == secondDiceValue){
             showMessage("SNURRA VÄNNER");
+            launchOrdinaryGrafitti()
+            launchStarsGrafitti();
             var audio = new Audio('./sounds/omgsound.mp3');
             audio.play();
         }
@@ -57,12 +66,24 @@ function scrambleDice(){
 
 }
 
+function changeGIFs(){
+    let leftGIF = document.getElementById("leftGIF");
+    let rightGIF = document.getElementById("rightGIF");
+
+    let firstGIFValue = Math.floor(Math.random() * (9 - 1 + 1) + 1);
+    let secondGIFValue = Math.floor(Math.random() * (9 - 1 + 1) + 1);
+
+    leftGIF.src = `./images/gif${firstGIFValue}.gif`
+    
+    rightGIF.src = `./images/gif${secondGIFValue}.gif`
+}
+
 function showMessage(message){
     let overlay = document.getElementById("overlay");
-    overlay.style.display = "block";
+    overlay.style.display = "flex";
     setTimeout(() => {
         overlay.style.display = "none";
-    }, 1000);
+    }, 2000);
     let popup = document.getElementById("popup");
     popup.innerHTML = message;
 }
@@ -130,3 +151,4 @@ function launchStarsGrafitti(){
       setTimeout(shoot, 100);
       setTimeout(shoot, 200);
 }
+
