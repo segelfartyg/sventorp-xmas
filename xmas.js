@@ -41,11 +41,20 @@ function throwTwo(){
             audio.play();
             launchStarsGrafitti();
             launchOrdinaryGrafitti()
-            showMessage("Ta ett paketjävel!!!!! SNURRA HÖGER");
+            showMessage("SEXAAAAAAA!!!");
+        }
+
+        if(firstDiceValue == 1 || secondDiceValue == 1){
+    
+            var audio = new Audio('./sounds/airhorn.mp3');
+            audio.play();
+            launchStarsGrafitti();
+            launchOrdinaryGrafitti()
+            showMessage("ETTTTAAAAAAAAAA!!!");
         }
 
         if(firstDiceValue == secondDiceValue){
-            showMessage("SNURRA VÄNNER");
+            showMessage("SAMMA PÅ BÅDA!!!");
             launchOrdinaryGrafitti()
             launchStarsGrafitti();
             var audio = new Audio('./sounds/omgsound.mp3');
