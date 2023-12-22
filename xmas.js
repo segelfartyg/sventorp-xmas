@@ -20,19 +20,27 @@ function throwTwo(){
 
         launchOrdinaryGrafitti()
         let firstDiceValue = Math.floor(Math.random() * (6 - 1 + 1) + 1);
-        firstDiceImageSrc.src = `./1dice${firstDiceValue}.png`
+        firstDiceImageSrc.src = `./images/1dice${firstDiceValue}.png`
         
        
     
         let secondDiceValue = Math.floor(Math.random() * (6 - 1 + 1) + 1);
-        secondDiceImageSrc.src = `./1dice${secondDiceValue}.png`
+        secondDiceImageSrc.src = `./images/1dice${secondDiceValue}.png`
 
         clearInterval(scrambleInterval);
     
         if(firstDiceValue == 6 || secondDiceValue == 6){
     
+            var audio = new Audio('./sounds/airhorn.mp3');
+            audio.play();
             launchStarsGrafitti();
             showMessage("Ta ett paketjävel!!!!! SNURRA HÖGER");
+        }
+
+        if(firstDiceValue == secondDiceValue){
+            showMessage("SNURRA VÄNNER");
+            var audio = new Audio('./sounds/omgsound.mp3');
+            audio.play();
         }
         
     }, 500);
@@ -42,10 +50,10 @@ function throwTwo(){
 
 function scrambleDice(){
         let firstDiceValue = Math.floor(Math.random() * (6 - 1 + 1) + 1);
-        firstDiceImageSrc.src = `./1dice${firstDiceValue}.png`
+        firstDiceImageSrc.src = `./images/1dice${firstDiceValue}.png`
         
         let secondDiceValue = Math.floor(Math.random() * (6 - 1 + 1) + 1);
-        secondDiceImageSrc.src = `./1dice${secondDiceValue}.png`
+        secondDiceImageSrc.src = `./images/1dice${secondDiceValue}.png`
 
 }
 
