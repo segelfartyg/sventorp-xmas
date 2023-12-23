@@ -4,6 +4,14 @@ let secondDiceValue = 1
 let firstDiceImageSrc = document.getElementById("firstDice");
 let secondDiceImageSrc = document.getElementById("secondDice");
 
+document.addEventListener("keydown", (event) => {
+
+    if(event.code == "Space"){
+
+        throwTwo()
+    }
+})
+
 function throwTwo(){
 
     changeGIFs();
