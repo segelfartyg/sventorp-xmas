@@ -22,12 +22,12 @@ function throwTwo(){
 
        
         let firstDiceValue = Math.floor(Math.random() * (6 - 1 + 1) + 1);
-        firstDiceImageSrc.src = `./images/1dice${firstDiceValue}.png`
+        firstDiceImageSrc.src = `./images/2dice${firstDiceValue}.svg`
         
        
     
         let secondDiceValue = Math.floor(Math.random() * (6 - 1 + 1) + 1);
-        secondDiceImageSrc.src = `./images/1dice${secondDiceValue}.png`
+        secondDiceImageSrc.src = `./images/2dice${secondDiceValue}.svg`
 
         
     firstDiceImageSrc.style.animation = "none";
@@ -68,10 +68,10 @@ function throwTwo(){
 
 function scrambleDice(){
         let firstDiceValue = Math.floor(Math.random() * (6 - 1 + 1) + 1);
-        firstDiceImageSrc.src = `./images/1dice${firstDiceValue}.png`
+        firstDiceImageSrc.src = `./images/2dice${firstDiceValue}.svg`
         
         let secondDiceValue = Math.floor(Math.random() * (6 - 1 + 1) + 1);
-        secondDiceImageSrc.src = `./images/1dice${secondDiceValue}.png`
+        secondDiceImageSrc.src = `./images/2dice${secondDiceValue}.svg`
 
 }
 
